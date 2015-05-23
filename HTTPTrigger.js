@@ -7,8 +7,6 @@ function HTTPTrigger(matchers,netIf,port) {
 	this.matchers = matchers;
 	netIf = netIf || "";
 	filterRule = "tcp port " + (port || 80);
-	console.log(filterRule);
-
 	tcp_tracker = new pcap.TCPTracker();
 
 	//Start packet capturing
