@@ -1,5 +1,5 @@
 var pcap = require("pcap");
-var HTTPSession = require("http_trace");
+var HTTPTrace = require("http_trace");
 var EventEmitter = require("events").EventEmitter;
 var inherits = require("util").inherits;
 
@@ -17,12 +17,12 @@ function HTTPTrigger(matchers,netIf,port) {
 
 	self = this;
 
-	tcp_tracker.on("session", function (session) {
-		http_session = new HTTPSession(session);
-		http_session.on("http request", function (session) {
-			headers = session.request.headers;
+	tcp_tracker.on("session", function (tcp_session) {
+		http_trace = new HTTPTrace(tcp_session);
+		http_trace.on("http request", function (http_session) {
+			headers = http_session.request.headers;
 			if(self.pattern_matches(headers))
-				self.emit("match", session.tcp_session.src, headers);
+				self.emit("match", http_session.tcp_session.src, headers);
 		});
 	});
 
