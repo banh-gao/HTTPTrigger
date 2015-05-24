@@ -19,6 +19,10 @@ A small module to capture HTTP traffic and detect matching HTTP headers
       //React to matching http headers from src
   });
 
+## Execution
+
+  The program needs packet capture priviledges to work (such as root)
+
 ## Author
 
 Daniel Zozin <zdenial@gmx.com>
