@@ -1,8 +1,8 @@
 {
-  "name": "HTTPTrigger",
+  "name": "http_trigger",
   "version": "1.0.0",
   "description": "Capture HTTP traffic and detect matching HTTP headers",
-  "main": "HTTPTrigger.js",
+  "main": "http_trigger.js",
   "dependencies": {
     "pcap": ">=2.0.0",
     "http_trace": "git://github.com/zeroDenial/http_trace.git"
